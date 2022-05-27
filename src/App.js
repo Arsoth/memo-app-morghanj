@@ -37,6 +37,13 @@ function App(props) {
         setSelectedMemo(memo)
     }
 
+    function onDeleteSelect(memo) {
+        let temp = memoList
+        let memoPos = memoList.indexOf(memo)
+        temp.splice(memoPos, 1)
+        setMemoList([...temp])
+    }
+
     if (!isLoggedIn) {
         return <_Login onSubmit={onLogin}/>
     }
@@ -47,7 +54,7 @@ function App(props) {
 
     return <>
         <_MemoAdd onMemoAdd={onMemoAdd}/>
-        <_MemoList list={memoList} onEditSelect={onEditSelect}/>
+        <_MemoList list={memoList} onEditSelect={onEditSelect} onDeleteSelect={onDeleteSelect}/>
     </>
 }
 

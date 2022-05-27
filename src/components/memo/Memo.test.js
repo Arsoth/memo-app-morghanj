@@ -65,3 +65,31 @@ test(
         expect(_onEditSelect).toHaveBeenCalledWith(memoData)
     }
 )
+test(
+    'should a button with the text "Delete"',
+    () => {
+        render(<Memo memo={{}}/>)
+        const button = screen.getByText("Delete")
+        expect(button.tagName).toBe("BUTTON")
+    }
+)
+
+test(
+    'should run onDeleteSelect prop when "Delete" button is clicked',
+    () => {
+
+        const memoData = {
+            title: 'title',
+            desc: 'desc',
+            date: new Date('2022-12-02'),
+            finished: true
+        }
+
+        const _onDeleteSelect = jest.fn();
+        render(<Memo memo={memoData} onDeleteSelect={_onDeleteSelect}/>)
+        const button = screen.getByText("Delete")
+        userEvent.click(button);
+
+        expect(_onDeleteSelect).toHaveBeenCalledWith(memoData)
+    }
+)
