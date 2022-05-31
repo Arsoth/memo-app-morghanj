@@ -3,16 +3,17 @@ import {useState} from "react";
 import {Login} from "./components/login/Login";
 import {MemoAdd} from "./components/memo-add/MemoAdd";
 import {MemoList} from "./components/memo-list/MemoList";
+import {MemoEdit} from "./components/memo-edit/MemoEdit";
 
 function App(props) {
     const {
-        _isLoggedIn = false,
+        _isLoggedIn = true,
         _selectedMemo = null,
         _Login = Login,
         _MemoAdd = MemoAdd,
         _MemoList = MemoList,
         // TODO - ADD DEFAULT COMP
-        _MemoEdit,
+        _MemoEdit = MemoEdit,
 
     } = props;
 
@@ -49,7 +50,7 @@ function App(props) {
     }
 
     if (selectedMemo) {
-        return <_MemoEdit/>
+        return <_MemoEdit setMemoList={setMemoList} memoList={memoList} setMemo={setSelectedMemo} memoContents={selectedMemo}/>
     }
 
     return <>
