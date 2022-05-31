@@ -25,7 +25,7 @@ export function MemoList({list, onEditSelect, onDeleteSelect, _Memo = Memo}) {
         <h1>Finished</h1>
         {
             finishedList.sort(sortMemoList)
-                .map((memoData, idx) => <_Memo key={idx} memo={memoData} onEditSelect={onEditSelect} onDeleteSelect={onDeleteSelect}/>)
+            .map((memoData, idx) => <_Memo key={idx} memo={memoData} onEditSelect={onEditSelect} onDeleteSelect={onDeleteSelect}/>)
         }
     </>
 }
