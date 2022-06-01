@@ -72,3 +72,4 @@ test('should run onSubmit prop when "Submit" button is clicked passing the user 
         date: new Date(userInput.date)
     })
 })
+

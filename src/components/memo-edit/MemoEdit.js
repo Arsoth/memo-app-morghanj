@@ -3,13 +3,7 @@ import {MemoForm} from "../memo-form/MemoForm";
 
 export function MemoEdit({memoContents, setMemo, memoList, setMemoList}) {
 
-    const [formState, setFormState] = useState({
-        title: memoContents.title,
-        desc: memoContents.desc,
-        date: memoContents.date,
-        finished: memoContents.finished
-    });
-
+    const [formState, setFormState] = useState(memoContents);
 
     function onFormSubmit(event) {
         event.preventDefault()
@@ -19,5 +13,8 @@ export function MemoEdit({memoContents, setMemo, memoList, setMemoList}) {
         setMemoList([...temp])
         setMemo(null)
     }
-    return <MemoForm setFormState={setFormState} onFormSubmit={onFormSubmit} formState={formState}/>
+    return <div>
+        <h2>Edit Memo:</h2>
+        <MemoForm setFormState={setFormState} onFormSubmit={onFormSubmit} formState={memoContents}/>
+    </div>
 }
